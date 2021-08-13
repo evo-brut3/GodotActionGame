@@ -657,7 +657,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 60
-frame = 49
+frame = 18
 __meta__ = {
 "_edit_group_": true
 }
@@ -709,7 +709,6 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="HitboxPivot/RollHitbox" index="0"]
 shape = SubResource( 47 )
-disabled = true
 
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="HitboxPivot/RollHitbox"]
