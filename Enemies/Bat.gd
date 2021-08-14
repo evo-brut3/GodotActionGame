@@ -21,6 +21,9 @@ onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
 
+func _ready():
+	sprite.playing = true
+
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
 	knockback = move_and_slide(knockback)
@@ -36,7 +39,7 @@ func _physics_process(delta):
 		CHASE:
 			var player = playerDetectionZone.player
 			if player != null:
-				var direction = (player.global_position - global_position).normalized()
+				var direction = global_position.direction_to(player.global_position)
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 			else:
 				state = IDLE	
