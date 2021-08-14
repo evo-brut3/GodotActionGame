@@ -1,3 +1,3 @@
-extends "res://Hitboxes/Hitbox.gd"
+extends HitBox
 
-var knockback_vector = Vector2.ZERO
+var knockback_vector: = Vector2.ZERO
