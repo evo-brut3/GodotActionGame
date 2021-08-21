@@ -18,17 +18,26 @@ position = Vector2( 1, 0 )
 position = Vector2( 239, 136 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 176, 112, 480, 272 )
+region_rect = Rect2( 176, 112, 1056, 624 )
 
 [node name="PathTileMap" parent="." instance=ExtResource( 5 )]
 position = Vector2( -17, -32 )
 tile_data = PoolIntArray( 10, 0, 0, 11, 0, 1, 12, 0, 2, 65546, 0, 65536, 65547, 0, 65541, 65548, 0, 131074, 131082, 0, 131072, 131083, 0, 65543, 196619, 0, 131075, 524305, 0, 0, 524306, 0, 1, 524307, 0, 1, 524308, 0, 1, 524309, 0, 1, 524310, 0, 1, 524311, 0, 5, 524312, 0, 196609, 524313, 0, 196609, 524314, 0, 196609, 524315, 0, 196610, 589838, 0, 0, 589839, 0, 1, 589840, 0, 5, 589841, 0, 196614, 589842, 0, 131073, 589843, 0, 131073, 589844, 0, 131073, 589845, 0, 131073, 589846, 0, 131073, 589847, 0, 131074, 655372, 0, 0, 655373, 0, 1, 655374, 0, 65545, 655375, 0, 131073, 655376, 0, 131074, 720896, 0, 0, 720897, 0, 1, 720898, 0, 1, 720899, 0, 1, 720900, 0, 1, 720901, 0, 2, 720907, 0, 0, 720908, 0, 65545, 720909, 0, 131073, 720910, 0, 131074, 786432, 0, 131072, 786433, 0, 131073, 786434, 0, 131073, 786435, 0, 131073, 786436, 0, 131073, 786437, 0, 65543, 786443, 0, 131072, 786444, 0, 131074, 851973, 0, 131076, 851974, 0, 2, 917509, 0, 131072, 917510, 0, 196618, 917511, 0, 196610, 983046, 0, 131075 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 167, 68.0781 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 7.0
 
 [node name="YSort" type="YSort" parent="."]
 position = Vector2( -8, 8 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 175, 60.0781 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../Camera2D")
 
 [node name="CliffSandTileMap" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 31, -96 )
@@ -159,8 +168,10 @@ position = Vector2( 255, 176 )
 [node name="Bush6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 279, 152 )
 
-[node name="HealthUI" parent="." instance=ExtResource( 9 )]
-margin_left = 1.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 9 )]
+margin_left = 2.0
 margin_top = 2.0
-margin_right = 48.0
+margin_right = 49.0
 margin_bottom = 18.0
